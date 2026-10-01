@@ -107,6 +107,13 @@
             margin-bottom: 30px;
         }
 
+        .section-description {
+            color: #607783;
+            font-size: 16px;
+            margin-top: -15px;
+            margin-bottom: 25px;
+        }
+
         .form-group {
             margin-bottom: 25px;
         }
@@ -116,22 +123,31 @@
             font-size: 17px;
             font-weight: bold;
             margin-bottom: 9px;
+            line-height: 1.5;
         }
 
         input,
-        select {
+        select,
+        textarea {
             width: 100%;
             padding: 15px;
             border: 1px solid #cbdce5;
             border-radius: 10px;
             font-size: 16px;
             background: white;
+            font-family: Arial, sans-serif;
         }
 
         input:focus,
-        select:focus {
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: #1682a5;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
         }
 
         .required {
@@ -152,6 +168,26 @@
 
         .next-button:hover {
             background: #075879;
+        }
+
+        .subsection {
+            background: #f5fafc;
+            border-left: 5px solid #1682a5;
+            padding: 18px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .subsection-title {
+            color: #1682a5;
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .subsection-text {
+            color: #607783;
+            font-size: 16px;
         }
 
         footer {
@@ -194,422 +230,805 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
+<header class="header">
 
-        <div class="logo-area">
+    <div class="logo-area">
 
-            <div class="logo">P</div>
+        <div class="logo">P</div>
 
-            <div>
-                <div class="ppapp">PPAPP</div>
-                <div class="subtitle">
-                    Perbadanan Perpustakaan Awam Pulau Pinang
-                </div>
+        <div>
+            <div class="ppapp">PPAPP</div>
+
+            <div class="subtitle">
+                Perbadanan Perpustakaan Awam Pulau Pinang
             </div>
+        </div>
+
+    </div>
+
+    <button class="header-button">
+        Borang peserta
+    </button>
+
+</header>
+
+
+<main class="container">
+
+    <div class="small-title">
+        MAKLUM BALAS KURSUS
+    </div>
+
+    <h1>
+        Penilaian Kursus
+    </h1>
+
+    <p class="description">
+        Sila lengkapkan maklumat peserta dan berikan penilaian
+        terhadap kursus yang telah dihadiri.
+    </p>
+
+
+    <!-- MAKLUMAT PESERTA -->
+
+    <section class="card">
+
+        <h2 class="section-title">
+            MAKLUMAT PESERTA
+        </h2>
+
+
+        <div class="form-group">
+
+            <label>
+                Nama <span class="required">*</span>
+            </label>
+
+            <input
+                id="nama"
+                type="text"
+                placeholder="Masukkan nama anda"
+            >
 
         </div>
 
-        <button class="header-button">
-            Borang peserta
+
+        <div class="form-group">
+
+            <label>
+                Emel
+            </label>
+
+            <input
+                id="emel"
+                type="email"
+                placeholder="Masukkan emel anda"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Nama Kursus <span class="required">*</span>
+            </label>
+
+            <select id="nama_kursus">
+
+                <option value="">
+                    -- Pilih nama kursus --
+                </option>
+
+                <option>
+                    Kursus Komputer
+                </option>
+
+                <option>
+                    Kursus Microsoft Office
+                </option>
+
+                <option>
+                    Kursus Keselamatan
+                </option>
+
+                <option>
+                    Kursus Pengurusan
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Jabatan <span class="required">*</span>
+            </label>
+
+            <select id="jabatan">
+
+                <option value="">
+                    -- Pilih jabatan --
+                </option>
+
+                <option>
+                    Jabatan Pengurusan
+                </option>
+
+                <option>
+                    Jabatan Perkhidmatan Perpustakaan
+                </option>
+
+                <option>
+                    Jabatan Teknologi Maklumat
+                </option>
+
+                <option>
+                    Jabatan Pentadbiran
+                </option>
+
+                <option>
+                    Jabatan kakitangan Awam
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Bahagian <span class="required">*</span>
+            </label>
+
+            <select id="bahagian">
+
+                <option value="">
+                    -- Pilih bahagian --
+                </option>
+
+                <option>
+                    Bahagian Pentadbiran
+                </option>
+
+                <option>
+                    Bahagian Sumber Manusia
+                </option>
+
+                <option>
+                    Bahagian Kewangan
+                </option>
+
+                <option>
+                    Bahagian Teknologi Maklumat
+                </option>
+
+                <option>
+                    Bahagian Perkhidmatan Perpustakaan
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- GRED JAWATAN - BOLEH TAIP -->
+
+        <div class="form-group">
+
+            <label>
+                Gred Jawatan
+            </label>
+
+            <input
+                id="gred_jawatan"
+                type="text"
+                placeholder="Masukkan gred jawatan"
+            >
+
+        </div>
+
+
+        <button
+            type="button"
+            class="next-button"
+            onclick="kePenilaian()"
+        >
+            Seterusnya
         </button>
 
-    </header>
+    </section>
 
 
-    <!-- KANDUNGAN -->
-    <main class="container">
 
-        <div class="small-title">
-            MAKLUM BALAS KURSUS
+    <!-- PENILAIAN -->
+
+    <section
+        id="penilaian"
+        class="card"
+        style="display:none; margin-top:30px;"
+    >
+
+        <h2 class="section-title">
+            PENILAIAN KURSUS
+        </h2>
+
+
+        <!-- BAHAGIAN A -->
+
+        <div class="subsection">
+
+            <div class="subsection-title">
+                BAHAGIAN A
+            </div>
+
+            <div class="subsection-text">
+                KANDUNGAN PROGRAM
+            </div>
+
         </div>
 
-        <h1>
-            Penilaian Kursus
-        </h1>
 
-        <p class="description">
-            Sila lengkapkan maklumat peserta dan berikan penilaian
-            terhadap kursus yang telah dihadiri.
-        </p>
+        <!-- SOALAN 4 -->
+
+        <div class="form-group">
+
+            <label>
+                4. Program latihan ini telah mencapai objektif yang telah ditetapkan.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_4">
+
+                <option value="">
+                    -- Pilih jawapan --
+                </option>
+
+                <option value="1">
+                    AMAT TIDAK SETUJU
+                </option>
+
+                <option value="2">
+                    TIDAK SETUJU
+                </option>
+
+                <option value="3">
+                    MEMUASKAN
+                </option>
+
+                <option value="4">
+                    SETUJU
+                </option>
+
+                <option value="5">
+                    SANGAT SETUJU
+                </option>
+
+            </select>
+
+        </div>
 
 
-        <!-- MAKLUMAT PESERTA -->
-        <section class="card">
+        <!-- SOALAN 5 -->
 
-            <h2 class="section-title">
-                MAKLUMAT PESERTA
-            </h2>
+        <div class="form-group">
+
+            <label>
+                5. Bahan program ini sesuai dengan tahap pemikiran dan keperluan jawatan/kerjaya saya.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_5">
+
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
+
+            </select>
+
+        </div>
 
 
-            <!-- NAMA -->
-            <div class="form-group">
+        <!-- SOALAN 6 -->
 
-                <label>
-                    Nama <span class="required">*</span>
-                </label>
+        <div class="form-group">
 
-                <input
-                    type="text"
-                    placeholder="Masukkan nama anda"
-                >
+            <label>
+                6. Konsep-konsep yang dipelajari adalah berguna dan boleh diaplikasi di tempat kerja.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
 
+            <select id="soalan_6">
+
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SOALAN 7 -->
+
+        <div class="form-group">
+
+            <label>
+                7. Bahan program telah dapat membantu saya dalam memahami kandungan program.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_7">
+
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SOALAN 8 -->
+
+        <div class="form-group">
+
+            <label>
+                8. Konsep-konsep yang dipelajari adalah penting kepada organisasi.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_8">
+
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- BAHAGIAN B -->
+
+        <div class="subsection">
+
+            <div class="subsection-title">
+                BAHAGIAN B
             </div>
 
-
-            <!-- EMEL -->
-            <div class="form-group">
-
-                <label>
-                    Emel
-                </label>
-
-                <input
-                    type="email"
-                    placeholder="Masukkan emel anda"
-                >
-
+            <div class="subsection-text">
+                PENCERAMAH
             </div>
 
+        </div>
 
-            <!-- NAMA KURSUS -->
-            <div class="form-group">
 
-                <label>
-                    Nama Kursus <span class="required">*</span>
-                </label>
+        <!-- SOALAN 9 -->
 
-                <select>
+        <div class="form-group">
 
-                    <option value="">
-                        -- Pilih nama kursus --
-                    </option>
+            <label>
+                9. Penceramah / Fasilitator berpengetahuan.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
 
-                    <option>
-                        Kursus Komputer
-                    </option>
+            <select id="soalan_9">
 
-                    <option>
-                        Kursus Microsoft Office
-                    </option>
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
 
-                    <option>
-                        Kursus Keselamatan
-                    </option>
+            </select>
 
-                    <option>
-                        Kursus Pengurusan
-                    </option>
+        </div>
 
-                </select>
 
+        <!-- SOALAN 10 -->
+
+        <div class="form-group">
+
+            <label>
+                10. Menggunakan metodologi yang sesuai dan mudah difahami.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_10">
+
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- BAHAGIAN C -->
+
+        <div class="subsection">
+
+            <div class="subsection-title">
+                BAHAGIAN C
             </div>
 
-
-            <!-- JABATAN -->
-            <div class="form-group">
-
-                <label>
-                    Jabatan <span class="required">*</span>
-                </label>
-
-                <select>
-
-                    <option value="">
-                        -- Pilih jabatan --
-                    </option>
-
-                    <option>
-                        Jabatan Pengurusan
-                    </option>
-
-                    <option>
-                        Jabatan Perkhidmatan Perpustakaan
-                    </option>
-
-                    <option>
-                        Jabatan Teknologi Maklumat
-                    </option>
-
-                    <option>
-                        Jabatan Pentadbiran
-                    </option>
-
-                    <option>
-                        Lain-lain
-                    </option>
-
-                </select>
-
+            <div class="subsection-text">
+                KEPERLUAN TEMPAT PROGRAM
+                (KEMUDAHAN YANG DISEDIAKAN)
             </div>
 
+        </div>
 
-            <!-- BAHAGIAN -->
-            <div class="form-group">
 
-                <label>
-                    Bahagian <span class="required">*</span>
-                </label>
+        <!-- SOALAN 11 -->
 
-                <select id="bahagian">
+        <div class="form-group">
 
-                    <option value="">
-                        -- Pilih bahagian --
-                    </option>
+            <label>
+                11. Tempat latihan.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
 
-                    <option>
-                        Bahagian Pentadbiran
-                    </option>
+            <select id="soalan_11">
 
-                    <option>
-                        Bahagian Sumber Manusia
-                    </option>
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
 
-                    <option>
-                        Bahagian Kewangan
-                    </option>
+            </select>
 
-                    <option>
-                        Bahagian Teknologi Maklumat
-                    </option>
+        </div>
 
-                    <option>
-                        Bahagian Perkhidmatan Perpustakaan
-                    </option>
 
-                </select>
+        <!-- SOALAN 12 -->
 
+        <div class="form-group">
+
+            <label>
+                12. Layanan Urus Setia terhadap sebarang permasalahan.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_12">
+
+                <option value="">-- Pilih jawapan --</option>
+                <option value="1">AMAT TIDAK SETUJU</option>
+                <option value="2">TIDAK SETUJU</option>
+                <option value="3">MEMUASKAN</option>
+                <option value="4">SETUJU</option>
+                <option value="5">SANGAT SETUJU</option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- BAHAGIAN D -->
+
+        <div class="subsection">
+
+            <div class="subsection-title">
+                BAHAGIAN D
             </div>
 
-
-            <!-- GRED -->
-            <div class="form-group">
-
-                <label>
-                    Gred Jawatan
-                </label>
-
-                <select id="gred_jawatan">
-
-                    <option value="">
-                        -- Pilih gred jawatan --
-                    </option>
-
-                    <option>
-                        SPM
-                    </option>
-
-                    <option>
-                        S1
-                    </option>
-
-                    <option>
-                        S5
-                    </option>
-
-                    <option>
-                        S9
-                    </option>
-
-                    <option>
-                        N1
-                    </option>
-
-                    <option>
-                        N5
-                    </option>
-
-                    <option>
-                        N9
-                    </option>
-
-                    <option>
-                        Lain-lain
-                    </option>
-
-                </select>
-
+            <div class="subsection-text">
+                TAHAP KEBERKESANAN PROGRAM
             </div>
 
-
-<button type="button" class="next-button" onclick="kePenilaian()">
-    Seterusnya
-</button>
-
-        </section>
+        </div>
 
 
-<!-- PENILAIAN KURSUS -->
-<section id="penilaian" class="card" style="display: none; margin-top: 30px;">
+        <!-- SOALAN 13 -->
 
-<h2 class="section-title">
-        PENILAIAN KURSUS
-    </h2>
+        <div class="form-group">
 
-    <div class="form-group">
-        <label>1. Kandungan kursus</label>
-        <select id="kandungan_kursus">
-            <option value="">-- Pilih penilaian --</option>
-            <option>1 - Sangat Tidak Memuaskan</option>
-            <option>2 - Tidak Memuaskan</option>
-            <option>3 - Sederhana</option>
-            <option>4 - Memuaskan</option>
-            <option>5 - Sangat Memuaskan</option>
-        </select>
-    </div>
+            <label>
+                13. Tahap kefahaman peserta terhadap kandungan program/kursus.
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
 
-    <div class="form-group">
-        <label>2. Penyampaian tenaga pengajar</label>
-        <select>
-            <option value="">-- Pilih penilaian --</option>
-            <option>1 - Sangat Tidak Memuaskan</option>
-            <option>2 - Tidak Memuaskan</option>
-            <option>3 - Sederhana</option>
-            <option>4 - Memuaskan</option>
-            <option>5 - Sangat Memuaskan</option>
-        </select>
-    </div>
+            <select id="soalan_13">
 
-    <div class="form-group">
-        <label>3. Bahan kursus</label>
-        <select>
-            <option value="">-- Pilih penilaian --</option>
-            <option>1 - Sangat Tidak Memuaskan</option>
-            <option>2 - Tidak Memuaskan</option>
-            <option>3 - Sederhana</option>
-            <option>4 - Memuaskan</option>
-            <option>5 - Sangat Memuaskan</option>
-        </select>
-    </div>
+                <option value="">-- Pilih jawapan --</option>
 
-    <div class="form-group">
-        <label>4. Kemudahan kursus</label>
-        <select>
-            <option value="">-- Pilih penilaian --</option>
-            <option>1 - Sangat Tidak Memuaskan</option>
-            <option>2 - Tidak Memuaskan</option>
-            <option>3 - Sederhana</option>
-            <option>4 - Memuaskan</option>
-            <option>5 - Sangat Memuaskan</option>
-        </select>
-    </div>
+                <option value="1">
+                    SANGAT RENDAH (Tidak memahami langsung kandungan)
+                </option>
 
-    <div class="form-group">
-        <label>5. Kepuasan keseluruhan</label>
-        <select>
-            <option value="">-- Pilih penilaian --</option>
-            <option>1 - Sangat Tidak Memuaskan</option>
-            <option>2 - Tidak Memuaskan</option>
-            <option>3 - Sederhana</option>
-            <option>4 - Memuaskan</option>
-            <option>5 - Sangat Memuaskan</option>
-        </select>
-    </div>
+                <option value="2">
+                    RENDAH (Kurang memahami dan masih memerlukan penjelasan)
+                </option>
 
-    <div class="form-group">
-        <label>Komen / Cadangan</label>
-        <textarea
-            style="width:100%; min-height:120px; padding:15px; border:1px solid #cbdce5; border-radius:10px; font-size:16px;"
-            placeholder="Masukkan komen atau cadangan anda"></textarea>
-    </div>
+                <option value="3">
+                    SEDERHANA (Memahami sebahagian kandungan)
+                </option>
 
-   <button type="button" class="next-button" onclick="hantarMaklumBalas()">
-    Hantar Maklum Balas
-</button>
+                <option value="4">
+                    BAIK (Memahami dengan jelas dan boleh mengikuti penyampaian dengan baik)
+                </option>
+
+                <option value="5">
+                    SANGAT BAIK (Memahami sepenuhnya dan boleh mengaplikasikan dengan yakin)
+                </option>
+
+            </select>
+
+        </div>
 
 
-</section>
+        <!-- SOALAN 14 -->
+
+        <div class="form-group">
+
+            <label>
+                14. Tahap kefahaman peserta terhadap penyampaian kursus
+                (penceramah/fasilitator).
+                (PILIH SATU SAHAJA)
+                <span class="required">*</span>
+            </label>
+
+            <select id="soalan_14">
+
+                <option value="">-- Pilih jawapan --</option>
+
+                <option value="1">
+                    SANGAT RENDAH (Tidak memahami langsung kandungan)
+                </option>
+
+                <option value="2">
+                    RENDAH (Kurang memahami dan masih memerlukan penjelasan)
+                </option>
+
+                <option value="3">
+                    SEDERHANA (Memahami sebahagian kandungan)
+                </option>
+
+                <option value="4">
+                    BAIK (Memahami dengan jelas dan boleh mengikuti penyampaian dengan baik)
+                </option>
+
+                <option value="5">
+                    SANGAT BAIK (Memahami sepenuhnya dan boleh mengaplikasikan dengan yakin)
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SOALAN 15 -->
+
+        <div class="form-group">
+
+            <label>
+                15. CADANGAN PENAMBAHBAIKAN / KOMEN
+                <span class="required">*</span>
+            </label>
+
+            <textarea
+                id="komen"
+                placeholder="Masukkan cadangan penambahbaikan atau komen anda"
+            ></textarea>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="next-button"
+            onclick="hantarMaklumBalas()"
+        >
+            Hantar Maklum Balas
+        </button>
+
+    </section>
 
 </main>
-    </main>
 
 
-    <footer>
-        © PPAPP · Maklum Balas Kursus
-    </footer>
+<footer>
+    ©️ PPAPP · Maklum Balas Kursus
+</footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-const SUPABASE_URL = "https://ziatvbmyxolbnegxewqi.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JFbuUvUgiMkdpjpanHWidA_8yxl3K25";
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
-</script>
-    <script>
+<script>
+
+const SUPABASE_URL =
+    "https://ziatvbmyxolbnegxewqi.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_JFbuUvUgiMkdpjpanHWidA_8yxl3K25";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
 function kePenilaian() {
+
     document.getElementById("penilaian").style.display = "block";
 
     document.getElementById("penilaian").scrollIntoView({
         behavior: "smooth"
     });
+
 }
 
-function ambilMedan(namaLabel) {
-    const kumpulan = document.querySelectorAll(".form-group");
-
-    for (const kumpulanItem of kumpulan) {
-        const label = kumpulanItem.querySelector("label");
-
-        if (!label) continue;
-
-        const teksLabel = label.textContent
-            .replace("*", "")
-            .trim();
-
-        if (teksLabel === namaLabel) {
-            return kumpulanItem.querySelector("input, select, textarea");
-        }
-    }
-
-    return null;
-}
 
 async function hantarMaklumBalas() {
 
-    const penilaian = document.querySelectorAll("#penilaian select");
+    const requiredFields = [
+        "nama",
+        "nama_kursus",
+        "jabatan",
+        "bahagian",
+        "soalan_4",
+        "soalan_5",
+        "soalan_6",
+        "soalan_7",
+        "soalan_8",
+        "soalan_9",
+        "soalan_10",
+        "soalan_11",
+        "soalan_12",
+        "soalan_13",
+        "soalan_14",
+        "komen"
+    ];
 
-    function nilai(select) {
-        if (!select) return 0;
 
-        const teks = select.options[select.selectedIndex]?.text || "";
-        const padanan = teks.match(/[1-5]/);
+    for (const id of requiredFields) {
 
-        return padanan ? Number(padanan[0]) : 0;
+        const element = document.getElementById(id);
+
+        if (!element || !element.value.trim()) {
+
+            alert("Sila lengkapkan semua ruangan yang diperlukan.");
+
+            element?.focus();
+
+            return;
+        }
+
     }
 
+
     const data = {
-        nama: ambilMedan("Nama")?.value || "",
-        emel: ambilMedan("Emel")?.value || "",
-        nama_kursus: ambilMedan("Nama Kursus")?.value || "",
-        jabatan: ambilMedan("Jabatan")?.value || "",
-        bahagian: document.getElementById("bahagian")?.value || "",
-        gred_jawatan: document.getElementById("gred_jawatan")?.value || "",
 
-        kandungan_kursus: nilai(penilaian[0]),
-        penyampaian_pengajar: nilai(penilaian[1]),
-        bahan_kursus: nilai(penilaian[2]),
-        kemudahan_kursus: nilai(penilaian[3]),
-        kepuasan_keseluruhan: nilai(penilaian[4]),
+        nama:
+            document.getElementById("nama").value.trim(),
 
-        komen: document.querySelector("#penilaian textarea")?.value || ""
+        emel:
+            document.getElementById("emel").value.trim(),
+
+        nama_kursus:
+            document.getElementById("nama_kursus").value,
+
+        jabatan:
+            document.getElementById("jabatan").value,
+
+        bahagian:
+            document.getElementById("bahagian").value,
+
+        gred_jawatan:
+            document.getElementById("gred_jawatan").value,
+
+
+        soalan_4:
+            Number(document.getElementById("soalan_4").value),
+
+        soalan_5:
+            Number(document.getElementById("soalan_5").value),
+
+        soalan_6:
+            Number(document.getElementById("soalan_6").value),
+
+        soalan_7:
+            Number(document.getElementById("soalan_7").value),
+
+        soalan_8:
+            Number(document.getElementById("soalan_8").value),
+
+        soalan_9:
+            Number(document.getElementById("soalan_9").value),
+
+        soalan_10:
+            Number(document.getElementById("soalan_10").value),
+
+        soalan_11:
+            Number(document.getElementById("soalan_11").value),
+
+        soalan_12:
+            Number(document.getElementById("soalan_12").value),
+
+        soalan_13:
+            Number(document.getElementById("soalan_13").value),
+
+        soalan_14:
+            Number(document.getElementById("soalan_14").value),
+
+
+        komen:
+            document.getElementById("komen").value.trim()
+
     };
+
 
     const { error } = await supabaseClient
         .from("maklum_balas")
         .insert([data]);
 
+
     if (error) {
+
         console.error(error);
-        alert("Gagal menghantar maklum balas. Sila cuba lagi.");
+
+        alert(
+            "Gagal menghantar maklum balas. Sila cuba lagi."
+        );
+
         return;
     }
 
-    alert("Maklum balas berjaya dihantar!");
+
+    alert(
+        "Maklum balas berjaya dihantar!"
+    );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
+
 </script>
+
 
 </body>
 </html>

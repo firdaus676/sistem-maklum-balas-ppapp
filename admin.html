@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="ms">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Pentadbir Sistem - PPAPP</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: #f4f6f8;
             color: #222;
         }
+
 
         header {
             background: #0b5ed7;
@@ -23,20 +35,24 @@
             text-align: center;
         }
 
+
         header h1 {
             margin: 0;
             font-size: 25px;
         }
 
+
         header p {
             margin: 8px 0 0;
         }
 
+
         .container {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 30px auto;
             padding: 20px;
         }
+
 
         .card {
             background: white;
@@ -46,6 +62,7 @@
             margin-bottom: 25px;
         }
 
+
         input {
             width: 100%;
             box-sizing: border-box;
@@ -54,6 +71,7 @@
             border: 1px solid #ccc;
             border-radius: 7px;
         }
+
 
         button {
             padding: 12px 20px;
@@ -65,37 +83,48 @@
             font-weight: bold;
         }
 
+
         button:hover {
             opacity: 0.9;
         }
+
 
         #dashboard {
             display: none;
         }
 
+
         .table-wrapper {
             overflow-x: auto;
         }
 
+
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1000px;
+            min-width: 2200px;
         }
 
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: left;
+            vertical-align: top;
         }
+
 
         th {
             background: #f0f2f5;
+            white-space: nowrap;
         }
+
 
         tr:nth-child(even) {
             background: #fafafa;
         }
+
 
         .stat {
             font-size: 30px;
@@ -103,21 +132,50 @@
             color: #0b5ed7;
         }
 
+
         .error {
             color: #c00;
             margin-top: 10px;
         }
+
+
+        .rating {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+
+        .comment {
+            min-width: 250px;
+            white-space: normal;
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-    <h1>Perbadanan Perpustakaan Awam Pulau Pinang</h1>
-    <p>Dashboard Pentadbir Sistem - Respons Kursus</p>
+
+    <h1>
+        Perbadanan Perpustakaan Awam Pulau Pinang
+    </h1>
+
+    <p>
+        Dashboard Pentadbir Sistem - Respons Kursus
+    </p>
+
 </header>
 
+
+
 <div class="container">
+
+
+    <!-- LOGIN -->
 
     <div class="card" id="loginBox">
 
@@ -127,77 +185,129 @@
             Masukkan kod akses pentadbir untuk melihat respons peserta.
         </p>
 
+
         <input
             type="password"
             id="kodAkses"
             placeholder="Masukkan kod akses"
         >
 
+
         <button onclick="loginAdmin()">
             Lihat Respons
         </button>
+
 
         <div id="mesej" class="error"></div>
 
     </div>
 
 
+
+    <!-- DASHBOARD -->
+
     <div id="dashboard">
+
+
+        <!-- JUMLAH RESPONS -->
 
         <div class="card">
 
-            <h2>Respons Kursus</h2>
+            <h2>
+                Respons Kursus
+            </h2>
 
             <p>
                 Jumlah respons diterima:
             </p>
 
-            <div class="stat" id="jumlahRespons">
+            <div class="stat"
+                 id="jumlahRespons">
                 0
             </div>
 
         </div>
 
 
+
+        <!-- SENARAI -->
+
         <div class="card">
 
-            <h2>Senarai Maklum Balas</h2>
+            <h2>
+                Senarai Maklum Balas
+            </h2>
+
 
             <button onclick="muatSemula()">
                 Muat Semula
             </button>
 
-            <br><br>
+
+            <br>
+            <br>
+
 
             <div class="table-wrapper">
 
+
                 <table>
+
 
                     <thead>
 
                         <tr>
+
                             <th>Tarikh</th>
+
                             <th>Nama</th>
+
                             <th>Emel</th>
+
                             <th>Kursus</th>
+
                             <th>Jabatan</th>
+
                             <th>Bahagian</th>
+
                             <th>Gred</th>
-                            <th>Kandungan</th>
-                            <th>Penyampaian</th>
-                            <th>Bahan</th>
-                            <th>Kemudahan</th>
-                            <th>Kepuasan</th>
-                            <th>Komen</th>
+
+                            <th>Soalan 4</th>
+
+                            <th>Soalan 5</th>
+
+                            <th>Soalan 6</th>
+
+                            <th>Soalan 7</th>
+
+                            <th>Soalan 8</th>
+
+                            <th>Soalan 9</th>
+
+                            <th>Soalan 10</th>
+
+                            <th>Soalan 11</th>
+
+                            <th>Soalan 12</th>
+
+                            <th>Soalan 13</th>
+
+                            <th>Soalan 14</th>
+
+                            <th>Cadangan / Komen</th>
+
                         </tr>
 
                     </thead>
+
 
                     <tbody id="jadualRespons">
 
                     </tbody>
 
+
                 </table>
+
 
             </div>
 
@@ -208,13 +318,22 @@
 </div>
 
 
+
 <script>
+
+
+/* ================================
+   SUPABASE
+================================ */
+
 
 const SUPABASE_URL =
     "https://ziatvbmyxolbnegxewqi.supabase.co";
 
+
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_JFbuUvUgiMkdpjpanHWidA_8yxl3K25";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -223,7 +342,85 @@ const supabaseClient =
     );
 
 
+
+/* ================================
+   KOD ADMIN
+================================ */
+
+
 const KOD_ADMIN = "PPAPP2026";
+
+
+
+/* ================================
+   RATING 1 - 5
+================================ */
+
+
+function ratingStandard(nilai) {
+
+    switch (Number(nilai)) {
+
+        case 1:
+            return "1 - Amat Tidak Setuju";
+
+        case 2:
+            return "2 - Tidak Setuju";
+
+        case 3:
+            return "3 - Memuaskan";
+
+        case 4:
+            return "4 - Setuju";
+
+        case 5:
+            return "5 - Sangat Setuju";
+
+        default:
+            return "";
+
+    }
+
+}
+
+
+
+/* ================================
+   RATING SOALAN 13 & 14
+================================ */
+
+
+function ratingKefahaman(nilai) {
+
+    switch (Number(nilai)) {
+
+        case 1:
+            return "1 - Sangat Rendah";
+
+        case 2:
+            return "2 - Rendah";
+
+        case 3:
+            return "3 - Sederhana";
+
+        case 4:
+            return "4 - Baik";
+
+        case 5:
+            return "5 - Sangat Baik";
+
+        default:
+            return "";
+
+    }
+
+}
+
+
+
+/* ================================
+   LOGIN ADMIN
+================================ */
 
 
 function loginAdmin() {
@@ -231,98 +428,269 @@ function loginAdmin() {
     const kod =
         document.getElementById("kodAkses").value;
 
+
     if (kod !== KOD_ADMIN) {
 
         document.getElementById("mesej").textContent =
             "Kod akses tidak sah.";
 
         return;
+
     }
+
 
     document.getElementById("loginBox").style.display =
         "none";
 
+
     document.getElementById("dashboard").style.display =
         "block";
 
+
     muatSemula();
+
 }
+
+
+
+/* ================================
+   AMBIL DATA SUPABASE
+================================ */
 
 
 async function muatSemula() {
 
+
     const { data, error } =
         await supabaseClient
+
             .from("maklum_balas")
+
             .select("*")
+
             .order("created_at", {
                 ascending: false
             });
+
+
 
     if (error) {
 
         console.error(error);
 
+
         alert(
-            "Gagal mengambil data daripada Supabase."
+            "ERROR SUPABASE:\n\n" +
+            error.message
         );
 
+
         return;
+
     }
+
+
 
     document.getElementById("jumlahRespons")
         .textContent = data.length;
 
+
+
     const jadual =
         document.getElementById("jadualRespons");
 
+
     jadual.innerHTML = "";
 
+
+
     data.forEach(item => {
+
 
         const row =
             document.createElement("tr");
 
+
+
         row.innerHTML = `
 
+
+            <!-- TARIKH -->
+
             <td>
-                ${new Date(item.created_at)
-                    .toLocaleString("ms-MY")}
+
+                ${
+                    item.created_at
+
+                    ? new Date(item.created_at)
+                        .toLocaleString("ms-MY")
+
+                    : ""
+                }
+
             </td>
 
-            <td>${item.nama || ""}</td>
 
-            <td>${item.emel || ""}</td>
 
-            <td>${item.nama_kursus || ""}</td>
+            <!-- NAMA -->
 
-            <td>${item.jabatan || ""}</td>
+            <td>
+                ${item.nama || ""}
+            </td>
 
-            <td>${item.bahagian || ""}</td>
 
-            <td>${item.gred_jawatan || ""}</td>
 
-            <td>${item.kandungan_kursus || ""}</td>
+            <!-- EMEL -->
 
-            <td>${item.penyampaian_pengajar || ""}</td>
+            <td>
+                ${item.emel || ""}
+            </td>
 
-            <td>${item.bahan_kursus || ""}</td>
 
-            <td>${item.kemudahan_kursus || ""}</td>
 
-            <td>${item.kepuasan_keseluruhan || ""}</td>
+            <!-- KURSUS -->
 
-            <td>${item.komen || ""}</td>
+            <td>
+                ${item.nama_kursus || ""}
+            </td>
+
+
+
+            <!-- JABATAN -->
+
+            <td>
+                ${item.jabatan || ""}
+            </td>
+
+
+
+            <!-- BAHAGIAN -->
+
+            <td>
+                ${item.bahagian || ""}
+            </td>
+
+
+
+            <!-- GRED -->
+
+            <td>
+                ${item.gred_jawatan || ""}
+            </td>
+
+
+
+            <!-- SOALAN 4 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_4)}
+            </td>
+
+
+
+            <!-- SOALAN 5 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_5)}
+            </td>
+
+
+
+            <!-- SOALAN 6 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_6)}
+            </td>
+
+
+
+            <!-- SOALAN 7 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_7)}
+            </td>
+
+
+
+            <!-- SOALAN 8 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_8)}
+            </td>
+
+
+
+            <!-- SOALAN 9 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_9)}
+            </td>
+
+
+
+            <!-- SOALAN 10 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_10)}
+            </td>
+
+
+
+            <!-- SOALAN 11 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_11)}
+            </td>
+
+
+
+            <!-- SOALAN 12 -->
+
+            <td class="rating">
+                ${ratingStandard(item.soalan_12)}
+            </td>
+
+
+
+            <!-- SOALAN 13 -->
+
+            <td class="rating">
+                ${ratingKefahaman(item.soalan_13)}
+            </td>
+
+
+
+            <!-- SOALAN 14 -->
+
+            <td class="rating">
+                ${ratingKefahaman(item.soalan_14)}
+            </td>
+
+
+
+            <!-- KOMEN -->
+
+            <td class="comment">
+                ${item.komen || ""}
+            </td>
+
 
         `;
 
+
+
         jadual.appendChild(row);
+
 
     });
 
+
 }
+
 
 </script>
 
+
 </body>
+
 </html>

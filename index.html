@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maklum Balas Kursus - PPAPP</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef6fa;
+            color: #173247;
+        }
+
+        .header {
+            background: white;
+            padding: 22px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #d7e5ec;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+            background: #096b9b;
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Georgia, serif;
+            font-size: 38px;
+        }
+
+        .ppapp {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #617887;
+            margin-top: 5px;
+        }
+
+        .header-button {
+            background: white;
+            border: 2px solid #a9cbdc;
+            color: #125b7d;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 45px auto;
+            padding: 0 25px;
+        }
+
+        .small-title {
+            color: #1682a5;
+            font-weight: bold;
+            letter-spacing: 4px;
+            font-size: 18px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 50px;
+            margin: 15px 0;
+        }
+
+        .description {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #607783;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .section-title {
+            color: #1682a5;
+            letter-spacing: 3px;
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #cbdce5;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #1682a5;
+        }
+
+        .required {
+            color: #d14b4b;
+        }
+
+        .next-button {
+            background: #086d9c;
+            color: white;
+            border: none;
+            padding: 15px 28px;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .next-button:hover {
+            background: #075879;
+        }
+
+        footer {
+            text-align: center;
+            color: #718691;
+            padding: 30px;
+        }
+
+        @media (max-width: 650px) {
+            .header {
+                padding: 18px;
+            }
+
+            .ppapp {
+                font-size: 23px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .header-button {
+                display: none;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .container {
+                margin-top: 30px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo-area">
+
+            <div class="logo">P</div>
+
+            <div>
+                <div class="ppapp">PPAPP</div>
+                <div class="subtitle">
+                    Perbadanan Perpustakaan Awam Pulau Pinang
+                </div>
+            </div>
+
+        </div>
+
+        <button class="header-button">
+            Borang peserta
+        </button>
+
+    </header>
+
+
+    <!-- KANDUNGAN -->
+    <main class="container">
+
+        <div class="small-title">
+            MAKLUM BALAS KURSUS
+        </div>
+
+        <h1>
+            Penilaian Kursus
+        </h1>
+
+        <p class="description">
+            Sila lengkapkan maklumat peserta dan berikan penilaian
+            terhadap kursus yang telah dihadiri.
+        </p>
+
+
+        <!-- MAKLUMAT PESERTA -->
+        <section class="card">
+
+            <h2 class="section-title">
+                MAKLUMAT PESERTA
+            </h2>
+
+
+            <!-- NAMA -->
+            <div class="form-group">
+
+                <label>
+                    Nama <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Masukkan nama anda"
+                >
+
+            </div>
+
+
+            <!-- EMEL -->
+            <div class="form-group">
+
+                <label>
+                    Emel
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="Masukkan emel anda"
+                >
+
+            </div>
+
+
+            <!-- NAMA KURSUS -->
+            <div class="form-group">
+
+                <label>
+                    Nama Kursus <span class="required">*</span>
+                </label>
+
+                <select>
+
+                    <option value="">
+                        -- Pilih nama kursus --
+                    </option>
+
+                    <option>
+                        Kursus Komputer
+                    </option>
+
+                    <option>
+                        Kursus Microsoft Office
+                    </option>
+
+                    <option>
+                        Kursus Keselamatan
+                    </option>
+
+                    <option>
+                        Kursus Pengurusan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- JABATAN -->
+            <div class="form-group">
+
+                <label>
+                    Jabatan <span class="required">*</span>
+                </label>
+
+                <select>
+
+                    <option value="">
+                        -- Pilih jabatan --
+                    </option>
+
+                    <option>
+                        Jabatan Pengurusan
+                    </option>
+
+                    <option>
+                        Jabatan Perkhidmatan Perpustakaan
+                    </option>
+
+                    <option>
+                        Jabatan Teknologi Maklumat
+                    </option>
+
+                    <option>
+                        Jabatan Pentadbiran
+                    </option>
+
+                    <option>
+                        Lain-lain
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- BAHAGIAN -->
+            <div class="form-group">
+
+                <label>
+                    Bahagian <span class="required">*</span>
+                </label>
+
+                <select id="bahagian">
+
+                    <option value="">
+                        -- Pilih bahagian --
+                    </option>
+
+                    <option>
+                        Bahagian Pentadbiran
+                    </option>
+
+                    <option>
+                        Bahagian Sumber Manusia
+                    </option>
+
+                    <option>
+                        Bahagian Kewangan
+                    </option>
+
+                    <option>
+                        Bahagian Teknologi Maklumat
+                    </option>
+
+                    <option>
+                        Bahagian Perkhidmatan Perpustakaan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- GRED -->
+            <div class="form-group">
+
+                <label>
+                    Gred Jawatan
+                </label>
+
+                <select id="gred_jawatan">
+
+                    <option value="">
+                        -- Pilih gred jawatan --
+                    </option>
+
+                    <option>
+                        SPM
+                    </option>
+
+                    <option>
+                        S1
+                    </option>
+
+                    <option>
+                        S5
+                    </option>
+
+                    <option>
+                        S9
+                    </option>
+
+                    <option>
+                        N1
+                    </option>
+
+                    <option>
+                        N5
+                    </option>
+
+                    <option>
+                        N9
+                    </option>
+
+                    <option>
+                        Lain-lain
+                    </option>
+
+                </select>
+
+            </div>
+
+
+<button type="button" class="next-button" onclick="kePenilaian()">
+    Seterusnya
+</button>
+
+        </section>
+
+
+<!-- PENILAIAN KURSUS -->
+<section id="penilaian" class="card" style="display: none; margin-top: 30px;">
+
+<h2 class="section-title">
+        PENILAIAN KURSUS
+    </h2>
+
+    <div class="form-group">
+        <label>1. Kandungan kursus</label>
+        <select id="kandungan_kursus">
+            <option value="">-- Pilih penilaian --</option>
+            <option>1 - Sangat Tidak Memuaskan</option>
+            <option>2 - Tidak Memuaskan</option>
+            <option>3 - Sederhana</option>
+            <option>4 - Memuaskan</option>
+            <option>5 - Sangat Memuaskan</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>2. Penyampaian tenaga pengajar</label>
+        <select>
+            <option value="">-- Pilih penilaian --</option>
+            <option>1 - Sangat Tidak Memuaskan</option>
+            <option>2 - Tidak Memuaskan</option>
+            <option>3 - Sederhana</option>
+            <option>4 - Memuaskan</option>
+            <option>5 - Sangat Memuaskan</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>3. Bahan kursus</label>
+        <select>
+            <option value="">-- Pilih penilaian --</option>
+            <option>1 - Sangat Tidak Memuaskan</option>
+            <option>2 - Tidak Memuaskan</option>
+            <option>3 - Sederhana</option>
+            <option>4 - Memuaskan</option>
+            <option>5 - Sangat Memuaskan</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>4. Kemudahan kursus</label>
+        <select>
+            <option value="">-- Pilih penilaian --</option>
+            <option>1 - Sangat Tidak Memuaskan</option>
+            <option>2 - Tidak Memuaskan</option>
+            <option>3 - Sederhana</option>
+            <option>4 - Memuaskan</option>
+            <option>5 - Sangat Memuaskan</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>5. Kepuasan keseluruhan</label>
+        <select>
+            <option value="">-- Pilih penilaian --</option>
+            <option>1 - Sangat Tidak Memuaskan</option>
+            <option>2 - Tidak Memuaskan</option>
+            <option>3 - Sederhana</option>
+            <option>4 - Memuaskan</option>
+            <option>5 - Sangat Memuaskan</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Komen / Cadangan</label>
+        <textarea
+            style="width:100%; min-height:120px; padding:15px; border:1px solid #cbdce5; border-radius:10px; font-size:16px;"
+            placeholder="Masukkan komen atau cadangan anda"></textarea>
+    </div>
+
+   <button type="button" class="next-button" onclick="hantarMaklumBalas()">
+    Hantar Maklum Balas
+</button>
+
+
+</section>
+
+</main>
+    </main>
+
+
+    <footer>
+        © PPAPP · Maklum Balas Kursus
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://ziatvbmyxolbnegxewqi.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_JFbuUvUgiMkdpjpanHWidA_8yxl3K25";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+</script>
+    <script>
+function kePenilaian() {
+    document.getElementById("penilaian").style.display = "block";
+
+    document.getElementById("penilaian").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function ambilMedan(namaLabel) {
+    const kumpulan = document.querySelectorAll(".form-group");
+
+    for (const kumpulanItem of kumpulan) {
+        const label = kumpulanItem.querySelector("label");
+
+        if (!label) continue;
+
+        const teksLabel = label.textContent
+            .replace("*", "")
+            .trim();
+
+        if (teksLabel === namaLabel) {
+            return kumpulanItem.querySelector("input, select, textarea");
+        }
+    }
+
+    return null;
+}
+
+async function hantarMaklumBalas() {
+
+    const penilaian = document.querySelectorAll("#penilaian select");
+
+    function nilai(select) {
+        if (!select) return 0;
+
+        const teks = select.options[select.selectedIndex]?.text || "";
+        const padanan = teks.match(/[1-5]/);
+
+        return padanan ? Number(padanan[0]) : 0;
+    }
+
+    const data = {
+        nama: ambilMedan("Nama")?.value || "",
+        emel: ambilMedan("Emel")?.value || "",
+        nama_kursus: ambilMedan("Nama Kursus")?.value || "",
+        jabatan: ambilMedan("Jabatan")?.value || "",
+        bahagian: document.getElementById("bahagian")?.value || "",
+        gred_jawatan: document.getElementById("gred_jawatan")?.value || "",
+
+        kandungan_kursus: nilai(penilaian[0]),
+        penyampaian_pengajar: nilai(penilaian[1]),
+        bahan_kursus: nilai(penilaian[2]),
+        kemudahan_kursus: nilai(penilaian[3]),
+        kepuasan_keseluruhan: nilai(penilaian[4]),
+
+        komen: document.querySelector("#penilaian textarea")?.value || ""
+    };
+
+    const { error } = await supabaseClient
+        .from("maklum_balas")
+        .insert([data]);
+
+    if (error) {
+        console.error(error);
+        alert("Gagal menghantar maklum balas. Sila cuba lagi.");
+        return;
+    }
+
+    alert("Maklum balas berjaya dihantar!");
+}
+</script>
+
+</body>
+</html>

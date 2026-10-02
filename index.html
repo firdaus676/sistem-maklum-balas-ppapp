@@ -288,6 +288,7 @@
                 id="nama"
                 type="text"
                 placeholder="Masukkan nama anda"
+                oninput="this.value = this.value.toUpperCase()"
             >
 
         </div>
@@ -314,63 +315,104 @@
                 Nama Kursus <span class="required">*</span>
             </label>
 
-            <select id="nama_kursus">
-
-                <option value="">
-                    -- Pilih nama kursus --
-                </option>
-
-                <option>
-                    Kursus Komputer
-                </option>
-
-                <option>
-                    Kursus Microsoft Office
-                </option>
-
-                <option>
-                    Kursus Keselamatan
-                </option>
-
-                <option>
-                    Kursus Pengurusan
-                </option>
-
-            </select>
+            <input
+                id="nama_kursus"
+                type="text"
+                placeholder="Masukkan nama kursus"
+                oninput="this.value = this.value.toUpperCase()"
+            >
 
         </div>
 
 
+        <!-- UNIT / BAHAGIAN -->
+
         <div class="form-group">
 
             <label>
-                Jabatan <span class="required">*</span>
+                Unit / Bahagian <span class="required">*</span>
             </label>
 
-            <select id="jabatan">
+            <select id="bahagian" onchange="semakBahagian()">
 
                 <option value="">
-                    -- Pilih jabatan --
+                    -- Pilih Unit / Bahagian --
                 </option>
 
-                <option>
-                    Jabatan Pengurusan
+                <option value="BAHAGIAN PENGURUSAN SUMBER MANUSIA">
+                    BAHAGIAN PENGURUSAN SUMBER MANUSIA
                 </option>
 
-                <option>
-                    Jabatan Perkhidmatan Perpustakaan
+                <option value="BAHAGIAN PERANCANG EKONOMI NEGERI">
+                    BAHAGIAN PERANCANG EKONOMI NEGERI
                 </option>
 
-                <option>
-                    Jabatan Teknologi Maklumat
+                <option value="BAHAGIAN KHIDMAT PENGURUSAN">
+                    BAHAGIAN KHIDMAT PENGURUSAN
                 </option>
 
-                <option>
-                    Jabatan Pentadbiran
+                <option value="BAHAGIAN TEKNOLOGI MAKLUMAT DAN KOMUNIKASI NEGERI">
+                    BAHAGIAN TEKNOLOGI MAKLUMAT DAN KOMUNIKASI NEGERI
                 </option>
 
-                <option>
-                    Jabatan kakitangan Awam
+                <option value="BAHAGIAN DEWAN UNDANGAN NEGERI">
+                    BAHAGIAN DEWAN UNDANGAN NEGERI
+                </option>
+
+                <option value="BAHAGIAN PENGURUSAN MAJLIS DAN PROTOKOL">
+                    BAHAGIAN PENGURUSAN MAJLIS DAN PROTOKOL
+                </option>
+
+                <option value="BAHAGIAN MAJLIS SUKAN NEGERI PULAU PINANG">
+                    BAHAGIAN MAJLIS SUKAN NEGERI PULAU PINANG
+                </option>
+
+                <option value="BAHAGIAN KERAJAAN TEMPATAN">
+                    BAHAGIAN KERAJAAN TEMPATAN
+                </option>
+
+                <option value="BAHAGIAN PEJABAT KETUA MENTERI">
+                    BAHAGIAN PEJABAT KETUA MENTERI
+                </option>
+
+                <option value="BAHAGIAN KAWAL SELIA AIR">
+                    BAHAGIAN KAWAL SELIA AIR
+                </option>
+
+                <option value="UNIT KOMUNIKASI KORPORAT & INOVASI">
+                    UNIT KOMUNIKASI KORPORAT & INOVASI
+                </option>
+
+                <option value="UNIT INTEGRITI">
+                    UNIT INTEGRITI
+                </option>
+
+                <option value="UNIT AUDIT DALAM">
+                    UNIT AUDIT DALAM
+                </option>
+
+                <option value="UNIT PENGURUSAN BENCANA">
+                    UNIT PENGURUSAN BENCANA
+                </option>
+
+                <option value="PEJABAT PESURUHJAYA WARISAN NEGERI PULAU PINANG">
+                    PEJABAT PESURUHJAYA WARISAN NEGERI PULAU PINANG
+                </option>
+
+                <option value="JABATAN NEGERI / PEJABAT DAERAH DAN TANAH">
+                    JABATAN NEGERI / PEJABAT DAERAH DAN TANAH
+                </option>
+
+                <option value="BADAN BERKANUN NEGERI">
+                    BADAN BERKANUN NEGERI
+                </option>
+
+                <option value="PIHAK BERKUASA TEMPATAN">
+                    PIHAK BERKUASA TEMPATAN
+                </option>
+
+                <option value="LAIN-LAIN">
+                    LAIN-LAIN
                 </option>
 
             </select>
@@ -378,55 +420,42 @@
         </div>
 
 
-        <div class="form-group">
+        <!-- UNIT / BAHAGIAN LAIN-LAIN -->
+
+        <div
+            class="form-group"
+            id="bahagianLainGroup"
+            style="display:none;"
+        >
 
             <label>
-                Bahagian <span class="required">*</span>
+                Sila nyatakan Unit / Bahagian
+                <span class="required">*</span>
             </label>
 
-            <select id="bahagian">
-
-                <option value="">
-                    -- Pilih bahagian --
-                </option>
-
-                <option>
-                    Bahagian Pentadbiran
-                </option>
-
-                <option>
-                    Bahagian Sumber Manusia
-                </option>
-
-                <option>
-                    Bahagian Kewangan
-                </option>
-
-                <option>
-                    Bahagian Teknologi Maklumat
-                </option>
-
-                <option>
-                    Bahagian Perkhidmatan Perpustakaan
-                </option>
-
-            </select>
+            <input
+                id="bahagian_lain"
+                type="text"
+                placeholder="Masukkan Unit / Bahagian"
+                oninput="this.value = this.value.toUpperCase()"
+            >
 
         </div>
 
 
-        <!-- GRED JAWATAN - BOLEH TAIP -->
+        <!-- JAWATAN DAN GRED -->
 
         <div class="form-group">
 
             <label>
-                Gred Jawatan
+                Jawatan dan Gred
             </label>
 
             <input
                 id="gred_jawatan"
                 type="text"
-                placeholder="Masukkan gred jawatan"
+                placeholder="Masukkan jawatan dan gred"
+                oninput="this.value = this.value.toUpperCase()"
             >
 
         </div>
@@ -888,7 +917,94 @@ const supabaseClient =
     );
 
 
+// TUKAR UNIT / BAHAGIAN MENGIKUT PILIHAN
+function semakBahagian() {
+
+    const bahagian =
+        document.getElementById("bahagian").value;
+
+    const bahagianLainGroup =
+        document.getElementById("bahagianLainGroup");
+
+    const bahagianLain =
+        document.getElementById("bahagian_lain");
+
+
+    if (bahagian === "LAIN-LAIN") {
+
+        bahagianLainGroup.style.display = "block";
+
+        bahagianLain.required = true;
+
+    } else {
+
+        bahagianLainGroup.style.display = "none";
+
+        bahagianLain.required = false;
+
+        bahagianLain.value = "";
+
+    }
+
+}
+
+
 function kePenilaian() {
+
+    const nama =
+        document.getElementById("nama").value.trim();
+
+    const namaKursus =
+        document.getElementById("nama_kursus").value.trim();
+
+    const bahagian =
+        document.getElementById("bahagian").value;
+
+    const bahagianLain =
+        document.getElementById("bahagian_lain").value.trim();
+
+
+    if (!nama || !namaKursus || !bahagian) {
+
+        alert(
+            "Sila lengkapkan semua ruangan yang diperlukan."
+        );
+
+        if (!nama) {
+
+            document.getElementById("nama").focus();
+
+        } else if (!namaKursus) {
+
+            document.getElementById("nama_kursus").focus();
+
+        } else {
+
+            document.getElementById("bahagian").focus();
+
+        }
+
+        return;
+
+    }
+
+
+    if (
+        bahagian === "LAIN-LAIN"
+        &&
+        !bahagianLain
+    ) {
+
+        alert(
+            "Sila nyatakan Unit / Bahagian."
+        );
+
+        document.getElementById("bahagian_lain").focus();
+
+        return;
+
+    }
+
 
     document.getElementById("penilaian").style.display = "block";
 
@@ -904,7 +1020,6 @@ async function hantarMaklumBalas() {
     const requiredFields = [
         "nama",
         "nama_kursus",
-        "jabatan",
         "bahagian",
         "soalan_4",
         "soalan_5",
@@ -923,11 +1038,19 @@ async function hantarMaklumBalas() {
 
     for (const id of requiredFields) {
 
-        const element = document.getElementById(id);
+        const element =
+            document.getElementById(id);
 
-        if (!element || !element.value.trim()) {
 
-            alert("Sila lengkapkan semua ruangan yang diperlukan.");
+        if (
+            !element
+            ||
+            !element.value.trim()
+        ) {
+
+            alert(
+                "Sila lengkapkan semua ruangan yang diperlukan."
+            );
 
             element?.focus();
 
@@ -937,68 +1060,136 @@ async function hantarMaklumBalas() {
     }
 
 
+    const bahagianDipilih =
+        document.getElementById("bahagian").value;
+
+
+    let nilaiBahagian =
+        bahagianDipilih;
+
+
+    if (bahagianDipilih === "LAIN-LAIN") {
+
+        const bahagianLain =
+            document.getElementById("bahagian_lain").value
+            .trim()
+            .toUpperCase();
+
+
+        if (!bahagianLain) {
+
+            alert(
+                "Sila nyatakan Unit / Bahagian."
+            );
+
+            document.getElementById("bahagian_lain").focus();
+
+            return;
+
+        }
+
+
+        nilaiBahagian =
+            bahagianLain;
+
+    }
+
+
     const data = {
 
         nama:
-            document.getElementById("nama").value.trim(),
+            document.getElementById("nama")
+            .value
+            .trim()
+            .toUpperCase(),
 
         emel:
-            document.getElementById("emel").value.trim(),
+            document.getElementById("emel")
+            .value
+            .trim(),
 
         nama_kursus:
-            document.getElementById("nama_kursus").value,
-
-        jabatan:
-            document.getElementById("jabatan").value,
+            document.getElementById("nama_kursus")
+            .value
+            .trim()
+            .toUpperCase(),
 
         bahagian:
-            document.getElementById("bahagian").value,
+            nilaiBahagian,
 
         gred_jawatan:
-            document.getElementById("gred_jawatan").value,
+            document.getElementById("gred_jawatan")
+            .value
+            .trim()
+            .toUpperCase(),
 
 
         soalan_4:
-            Number(document.getElementById("soalan_4").value),
+            Number(
+                document.getElementById("soalan_4").value
+            ),
 
         soalan_5:
-            Number(document.getElementById("soalan_5").value),
+            Number(
+                document.getElementById("soalan_5").value
+            ),
 
         soalan_6:
-            Number(document.getElementById("soalan_6").value),
+            Number(
+                document.getElementById("soalan_6").value
+            ),
 
         soalan_7:
-            Number(document.getElementById("soalan_7").value),
+            Number(
+                document.getElementById("soalan_7").value
+            ),
 
         soalan_8:
-            Number(document.getElementById("soalan_8").value),
+            Number(
+                document.getElementById("soalan_8").value
+            ),
 
         soalan_9:
-            Number(document.getElementById("soalan_9").value),
+            Number(
+                document.getElementById("soalan_9").value
+            ),
 
         soalan_10:
-            Number(document.getElementById("soalan_10").value),
+            Number(
+                document.getElementById("soalan_10").value
+            ),
 
         soalan_11:
-            Number(document.getElementById("soalan_11").value),
+            Number(
+                document.getElementById("soalan_11").value
+            ),
 
         soalan_12:
-            Number(document.getElementById("soalan_12").value),
+            Number(
+                document.getElementById("soalan_12").value
+            ),
 
         soalan_13:
-            Number(document.getElementById("soalan_13").value),
+            Number(
+                document.getElementById("soalan_13").value
+            ),
 
         soalan_14:
-            Number(document.getElementById("soalan_14").value),
+            Number(
+                document.getElementById("soalan_14").value
+            ),
 
 
         komen:
-            document.getElementById("komen").value.trim()
+            document.getElementById("komen")
+            .value
+            .trim()
 
     };
 
 
-    const { error } = await supabaseClient
+    const { error } =
+        await supabaseClient
         .from("maklum_balas")
         .insert([data]);
 

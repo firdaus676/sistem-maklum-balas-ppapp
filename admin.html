@@ -102,7 +102,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 2200px;
+            min-width: 2100px;
         }
 
 
@@ -266,11 +266,9 @@
 
                             <th>Kursus</th>
 
-                            <th>Jabatan</th>
+                            <th>Unit / Bahagian</th>
 
-                            <th>Bahagian</th>
-
-                            <th>Gred</th>
+                            <th>Jawatan dan Gred</th>
 
                             <th>Soalan 4</th>
 
@@ -556,15 +554,7 @@ async function muatSemula() {
 
 
 
-            <!-- JABATAN -->
-
-            <td>
-                ${item.jabatan || ""}
-            </td>
-
-
-
-            <!-- BAHAGIAN -->
+            <!-- UNIT / BAHAGIAN -->
 
             <td>
                 ${item.bahagian || ""}
@@ -572,7 +562,7 @@ async function muatSemula() {
 
 
 
-            <!-- GRED -->
+            <!-- JAWATAN DAN GRED -->
 
             <td>
                 ${item.gred_jawatan || ""}
